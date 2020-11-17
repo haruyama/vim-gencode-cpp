@@ -20,7 +20,7 @@ function! s:GetInsertSpace(spaceName) "{{{
 
     if l:break != 0
         let l:fileExtend = expand('%:e')
-        if l:fileExtend ==? 'h'
+        if (l:fileExtend ==? 'h') || (l:fileExtend ==? 'hpp')
             " if already in header file, return 
             return l:spaceNameLine
         endif

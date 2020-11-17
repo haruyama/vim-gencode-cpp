@@ -136,7 +136,7 @@ function! gencode#definition#Generate() "{{{
 
     " if header file, change to source file
     let l:fileExtend = expand('%:e')
-    let l:needChangeFile = !l:isInline && l:fileExtend ==? 'h'
+    let l:needChangeFile = !l:isInline && ((l:fileExtend ==? 'h') || (l:fileExtend ==? 'hpp'))
 
     let l:formatedDeclaration  = <SID>FormatDeclaration(l:declaration)
     let l:declarationDecompose = matchlist(l:formatedDeclaration, '\(\%(\%(\w[a-zA-Z0-9_:*&]*\)\s\)*\)\(\~\?\w[a-zA-Z0-9_]*\s*\((\?.*)\)\?\s*\%(const\)\?\)\s*\%(=\s*\w\+\)\?\s*;') " match function declare, \1 match return type, \2 match function name and argument, \3 match argument
